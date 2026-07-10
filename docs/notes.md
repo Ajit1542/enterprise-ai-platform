@@ -56,3 +56,88 @@ Examples:
 Key takeaway:
 Input validation answers "Is this request well-formed?"
 Business validation answers "Is this request allowed according to business rules?"
+
+
+# Engineering Lessons
+
+## Lesson 1
+
+Think in responsibilities, not code.
+
+Before writing code ask:
+
+Who owns this responsibility?
+
+---
+
+## Lesson 2
+
+Repository answers:
+
+"What data exists?"
+
+Service answers:
+
+"What should we do with the data?"
+
+---
+
+## Lesson 3
+
+Business rules belong in Service.
+
+Storage logic belongs in Repository.
+
+HTTP concerns belong in API.
+
+---
+
+## Lesson 4
+
+A change in storage should only affect the Repository.
+
+CSV
+
+↓
+
+PostgreSQL
+
+↓
+
+MongoDB
+
+↓
+
+ServiceNow
+
+The API and Service should remain unchanged.
+
+---
+
+## Lesson 5
+
+Design first.
+
+Code later.
+
+Requirement
+
+↓
+
+Architecture
+
+↓
+
+Layer
+
+↓
+
+Class
+
+↓
+
+Method
+
+↓
+
+Implementation
