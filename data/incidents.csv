@@ -1,2 +1,5 @@
 incident_id,short_description,priority,status
 INC001,Database connection timeout,High,Open
+INC002,VPN not working,Medium,Open
+INC003,Wifi not working,Low,Open
+INC004,Password reset issue,High,Open 
