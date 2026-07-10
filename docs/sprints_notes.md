@@ -201,3 +201,29 @@ Reasons:
 - Reduced memory usage
 - Lower network bandwidth
 - Better user experience
+
+# Sprint 3 - Observability
+
+## Completed
+
+- Implemented centralized logging utility
+- Configured rotating file handler
+- Added API layer logging
+- Added Service layer logging
+- Added Repository layer logging
+- Implemented Request Logging Middleware
+- Generated unique Request ID for every request
+- Measured API processing time
+- Added Global Exception Handler
+- Standardized HTTP 500 error responses
+- Logged stack traces using logger.exception()
+
+## Engineering Learnings
+
+- Middleware executes before and after every request.
+- Request IDs help correlate logs across layers.
+- Repository raises exceptions instead of returning HTTP responses.
+- Exception handling belongs at the application boundary.
+- Logging is a cross-cutting concern and should be centralized.
+- `time.perf_counter()` is better suited for measuring elapsed time than `time.time()`.
+- Lower layers raise exceptions; higher layers decide how to present them.
