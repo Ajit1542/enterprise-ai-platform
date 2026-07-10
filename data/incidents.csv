@@ -1,0 +1,2 @@
+incident_id,short_description,priority,status
+INC001,Database connection timeout,High,Open
