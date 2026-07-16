@@ -20,7 +20,7 @@ Service Layer
 Repository Layer
         │
         ▼
-CSV Storage
+CSV Storage/MongoDB/ServiceNow
 
 ---
 
@@ -227,3 +227,21 @@ Reasons:
 - Logging is a cross-cutting concern and should be centralized.
 - `time.perf_counter()` is better suited for measuring elapsed time than `time.time()`.
 - Lower layers raise exceptions; higher layers decide how to present them.
+# Sprint 4 - MongoDB Migration
+
+## Completed
+
+- Replaced CSV repository implementation with MongoDB
+- Added centralized MongoDB connection module
+- Added configuration management using .env
+- Introduced Settings class for application configuration
+- Successfully migrated without changing API or Service layers
+- Verified repository pattern by swapping storage implementation only
+
+## Engineering Learnings
+
+- Repository abstracts the storage implementation.
+- MongoClient should be created once and reused.
+- Configuration belongs in .env and config.py.
+- MongoDB collections are dependencies initialized in the repository.
+- Layered architecture minimizes the impact of infrastructure changes.

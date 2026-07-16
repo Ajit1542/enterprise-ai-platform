@@ -1,6 +1,6 @@
 from app.core.logger import get_logger
 from app.database.mongodb import get_incident_collection
-
+from pymongo.errors import PyMongoError
 
 logger = get_logger(__name__)
 
@@ -60,3 +60,31 @@ class IncidentRepository:
         )
 
         return incidents
+    def update_ai_result(self,incident_id:str,ai_result:dict)->None:
+        logger.info("Updating AI summary for Incidnet ID = %s",
+                    incident_id,)
+        try:
+            result = self.collection.update_one(
+                {"incident_id": incident_id},
+                {
+                    "$set": {
+                        "ai": ai_result
+                    }
+                }
+            )
+
+            if result.matched_count == 0:
+                logger.Warning("No Records found | Incident ID = %s",incident_id)
+                
+            else:
+                logger.info("AI result updated successfully | Incident ID=%s",
+                incident_id,)
+                
+        except PyMongoError:
+            logger.exception(
+                    "Failed to update AI result | Incident ID=%s",
+                    incident_id,
+                )
+            raise
+
+        

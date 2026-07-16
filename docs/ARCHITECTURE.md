@@ -90,3 +90,30 @@ It should:
                │
                ▼
          Notification Service
+
+
+## After Integrating AI 
+
+                FastAPI
+                   │
+                   ▼
+          IncidentService
+          (Business Workflow)
+          ┌─────────┴─────────┐
+          ▼                   ▼
+ Repository             AIService
+     │                      │
+     ▼                      ▼
+ MongoDB             Prompt Builder
+                            │
+                            ▼
+                      LLM Factory
+                            │
+                            ▼
+                      Ollama Client
+                            │
+                            ▼
+                       HTTP Client
+                            │
+                            ▼
+                         Ollama
